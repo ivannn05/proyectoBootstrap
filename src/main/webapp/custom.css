@@ -19,19 +19,35 @@
 			rgba(0, 0, 255, 0.5)), url("psychedelic-cube-ai-generated_268835-7965.png");
 }
 
+.amarillo {
+
+	background-color: linear-gradient(rgba(255, 255, 0, 0.5),
+			rgba(0, 0, 255, 0.5)), url("psychedelic-cube-ai-generated_268835-7965.png");
+
+}
+
+.contenido {
+	
+	overflow-y: scroll;
+}
+
 .menu {
 	color: darkred;
 }
+
 .agrandar:hover {
 	transform: scale(1.4);
 }
+
 .carru {
 	margin-top: 70px;
 	height: 250px;
 }
-.separacion{
+
+.separacion {
 	margin-top: 70px;
 }
+
 /*Registro*/
 .RegistroTit {
 	color: green;

@@ -6,7 +6,6 @@
 	<title>Insert title here</title>
 	<meta name="author" content="ilp">
 	<meta name="description" content="edu.ILPProyectoBootstrap">
-	<meta name="viewport" content="widht=device-widht,inital-scale=1">
 	<link href="custom.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -17,59 +16,210 @@
 	<header class="fixed-top">
 
 		<h1 class="tituloInicio" id="inicio"><img class="people" width="80" height="80"
-				src="Imagenes/logotipo-monitor-tienda-digital-logotipo-productos-electronicos-o-logotipo-tienda-logotipo-tienda_372882-57.avif">Mi
-			Tienda</h1>
-		</headerclass="fixed-top">
+				src="Imagenes/logotipo-monitor-tienda-digital-logotipo-productos-electronicos-o-logotipo-tienda-logotipo-tienda_372882-57.avif">PCPlanet
+			<a link href="paginaCesta.html"><i class="bi bi-cart"></i></a>
+			<button class="d-md-none  w-100 navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span> <i class="bi bi-list"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<details>
+							<summary>Página Inicial</summary>
+							<a link href="index.html#inicio"><button>Inicio</button></a>
+							<a link href="index.html#S3"><button>Productos Nuevos</button></a>
+							<a link href="index.html#S2"><button>Productos Premium</button></a>
+						</details>
+					</li>
+					<li class="nav-item">
+						<a link href="pagina2.html"><button>Accesorios</button></a>
+					</li>
 
-		<br><br>
-		<details class="fixed-top">
-			<summary>Menu</summary class="fixed-top">
-			
-				
-			<details>
-			<summary>Pagina Inicial</summary>
+					<li class="nav-item">
+						<a link href="pagina3.html"><button>Saber mas sobre nosotros</button></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a link href="paginaCesta.html"><button>Cesta de la compra</button></a>
+
+					</li>
+				</ul>
+			</div>
+		</h1>
+	</header>
+
+
+	<details class="d-none  d-lg-block d-md-block fixed-top">
+		<summary>Menú</summary class="fixed-top">
+
+
+		<details>
+			<summary>Página Inicial</summary>
 			<a link href="index.html#inicio"><button>Inicio</button></a>
 			<a link href="index.html#S3"><button>Productos Nuevos</button></a>
 			<a link href="index.html#S2"><button>Productos Premium</button></a>
-			</details>
-			<br>
-			<a link href="pagina2.html"><button>Accesorios</button></a>
-			<br>
-			<a link href="pagina3.html"><button>Saber mas sobre nosotros</button></a>
 		</details>
-
-		<h1 class="RegistroTit">Registrese aqui</h1>
-<p>Para realizar una compra debe haberse registrado antes  </p>
-		<label>Correo Electronico
-			<input type="text"></input>
-		</label>
-
-		<label>Contraseña
-			<input type="text"></input>
-		</label>
 		<br>
-		<label color="red">¿Acepta que le enviemos nuestros productos agrgados mediante el correo?
-			<input type="checkbox"></input>
-		</label>
-		<br><br><br><br><br><br>
-
-<h1 class="RegistroTit">Iniciar Sesion</h1>
-
-		<label>Correo Electronico
-			<input type="text"></input>
-		</label>
-
-		<label>Contraseña
-			<input type="text"></input>
-		</label>
+		<a link href="pagina2.html"><button>Accesorios</button></a>
 		<br>
-		
-		<br><br>
-		<p>Recuerda registrarte para que podamos enviarte nuestros productos que vayamos implementando en la pagina </p>
+		<a link href="pagina3.html"><button>Saber mas sobre nosotros</button></a>
+		<a link href="paginaCesta.html"><button>Cesta de la compra</button></a>
+	</details>
+	<br><br>
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-			crossorigin="anonymous"></script>
+	<div class="container">
+		<div class="row d-flex justify-content-center align-items-center h-100">
+			<section>
+
+
+				<div class="col">
+					<div class="card">
+
+
+						<div class="row">
+							<div class="col-lg-5">
+
+								<div class="card bg-warning text-white rounded-3">
+
+									<div class="d-flex justify-content-between align-items-center mb-4">
+
+										<h5 class="mb-0">Tarjeta</h5>
+
+									</div>
+
+
+									<form class="mt-4" onsubmit=" return validacionDeFecha()">
+										<div class="form-outline form-white mb-4">
+											<input type="text" id="typeName" class="form-control form-control-lg"
+												siez="17" placeholder="Nombre completo" />
+											<label class="form-label" for="typeName">Propietario tarjeta</label>
+										</div>
+
+										<div class="form-outline form-white mb-4">
+											<input type="text" class="form-control form-control-lg" siez="17"
+												placeholder="1234-5678-9012-3457" minlength="19" maxlength="19" />
+											<label class="form-label" for="typeText">Número tarjeta</label>
+										</div>
+
+										<div class="row mb-4">
+											<div class="col-md-6">
+												<div class="form-outline form-white">
+													<input type="text" id="fecha" class="form-control form-control-lg"
+														placeholder="MM/YYYY" size="7" id="exp" minlength="7"
+														maxlength="7" />
+													<label class="form-label" for="typeExp">Fecha
+														caducidad</label>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-outline form-white">
+													<input type="password" id="typeText"
+														class="form-control form-control-lg" placeholder="***" size="1"
+														minlength="3" maxlength="3" />
+													<label class="form-label" for="typeText">CVC</label>
+												</div>
+											</div>
+										</div>
+										<button class=" btn btn-block btn-lg ">Enviar </button>
+										<div class="d-flex justify-content-between">
+									</form>
+
+
+
+
+
+
+
+								</div>
+							</div>
+
+						</div>
+
+
+					</div>
+
+				</div>
+
+
+
+
+			</section>
+
+
+			<section>
+
+
+				<div class="col">
+					<div class="card">
+
+
+						<div class="row">
+							<div class="col-lg-5">
+
+								<div class="card bg-warning text-white rounded-3">
+
+									<div class="d-flex justify-content-between align-items-center mb-4">
+
+										<h5 class="mb-0">Tarjeta</h5>
+
+									</div>
+
+
+									<form class="mt-4">
+										<div class="form-outline form-white mb-4">
+											<input type="text"  class="form-control form-control-lg"
+												siez="17" placeholder="Provincia,calle,casa" />
+											<label class="form-label" for="typeName">Direccion</label>
+										</div>
+
+										<div class="form-outline form-white mb-4">
+											<input type="text" class="form-control form-control-lg" siez="17"
+												placeholder="Pais" />
+											<label class="form-label" for="typeText">Pais</label>
+										</div>
+
+										<div class="row mb-4">
+											<div class="col-md-6">
+												<div class="form-outline form-white">
+													<input type="text" class="form-control form-control-lg"
+														placeholder="Codigo Postal" size="7" id="exp" minlength="5"
+														maxlength="5" />
+													<label class="form-label" for="typeExp">Codigo Postal</label>
+												</div>
+											</div>
+
+										</div>
+
+										<div class="d-flex justify-content-between">
+									</form>
+
+
+
+
+
+
+
+								</div>
+							</div>
+
+						</div>
+
+
+					</div>
+
+				</div>
+
+
+
+
+			</section>
+
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script src="js.js"> </script>
 </body>
 
 </html>
