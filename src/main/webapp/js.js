@@ -23,7 +23,7 @@ function validacionDeFecha() {
 
 
 
-
+const arrayDatos = []
 
 function añadirCesta(nombre, precio) {
 	let prod1 = {
@@ -35,22 +35,23 @@ function añadirCesta(nombre, precio) {
 
 		nombre: "PC MSI1",
 		precio2: 1500,
-		cantidad: 0,
+		cantidad: 0
 	}
 	let prod3 = {
 		nombre: "PC MSI2",
 		precio3: 1500,
-		cantidad: 0,
+		cantidad: 0
 	}
 	let prod4 = {
+		id:"casco1",
 		nombre: "CASCOS NUEVO1",
 		precio4: 80,
-		cantidad: 0,
+		cantidad: 0
 	}
 	let prod5 = {
 		nombre: "CASCOS NUEVO2",
 		precio5: 75,
-		cantidad: 0,
+		cantidad: 0
 	}
 	let prod6 = {
 		nombre: "CASCOS NUEVO3",
@@ -59,16 +60,17 @@ function añadirCesta(nombre, precio) {
 	};
 	const todasLasVentas = [prod1, prod2, prod3, prod4, prod5, prod6];
 
-	const arrayDatos = []
 	
+
 		
 		for (let i = 0; i < todasLasVentas.length; i++) {
 
 			if (todasLasVentas[i].cantidad == 0 && nombre == todasLasVentas[i].nombre) {
 				
 				todasLasVentas[i].cantidad = 1
+				arrayDatos.push(todasLasVentas[i])
 				
-			} else {
+			} else if(nombre == todasLasVentas[i].nombre){
 				
 				todasLasVentas[i].cantidad++
 			}
@@ -83,24 +85,33 @@ function mostrarCarrito(nombre, precio, todasLasVentas) {
 	tablaCarrito.innerHTML = ''; // Limpiar la tabla antes de volver a llenarla
 	let producto = [], fila;
 	let dineroTotal
-	dineroTotal = precio + dineroTotal
+	dineroTotal = precio * dineroTotal
 	// Recorrer todos los productos en el carrito
-	for (let key in todasLasVentas) {
+	for (let key in arrayDatos) {
 
 
 
 		// Crear una fila para este producto en la tabla
 		fila = `
             <tr>
-                <td>${nombre}</td>
+                <td>${arrayDatos[key]}</td>
                 <td>${todasLasVentas[key][2]}</td>
                 <td>$${precio}</td>
                 <td>$${dineroTotal}</td>
             </tr>
         `;
 
-		// Agregar la fila a la tabla
+		// Agregar la fila a la tabla nueva
 		tablaCarrito.innerHTML += fila;
 	}
 }
+function eliminarCesta() {}
+
+function comprar(){
+	
+	alert("Su compra fue realizada con exito")
+	
+	
+}
+
 

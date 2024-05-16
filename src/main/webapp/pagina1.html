@@ -165,7 +165,7 @@
 									</div>
 
 
-									<form class="mt-4">
+									<form class="mt-4" onsubmit=" return validarCodigoPostal()">
 										<div class="form-outline form-white mb-4">
 											<input type="text"  class="form-control form-control-lg"
 												siez="17" placeholder="Provincia,calle,casa" />
@@ -181,7 +181,7 @@
 										<div class="row mb-4">
 											<div class="col-md-6">
 												<div class="form-outline form-white">
-													<input type="text" class="form-control form-control-lg"
+													<input type="text" id="codigo" class="form-control form-control-lg"
 														placeholder="Codigo Postal" size="7" id="exp" minlength="5"
 														maxlength="5" />
 													<label class="form-label" for="typeExp">Codigo Postal</label>

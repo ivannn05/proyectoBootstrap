@@ -6,7 +6,6 @@
 	<title>Insert title here</title>
 	<meta name="author" content="ilp">
 	<meta name="description" content="edu.ILPProyectoBootstrap">
-	<meta name="viewport" content="widht=device-widht,inital-scale=1">
 	<link href="custom.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -94,6 +93,7 @@
 										</div>
 										<button class="botonCesta"
 											onclick="añadirCesta('Portatil Razer', 1250)">Añadir</button>
+											<button class="botonCesta" onclick="eliminarDelCarrito('Portatil Razer')">Eliminar</button>
 										<p align="center">1250€</p>
 									</div>
 
@@ -107,6 +107,7 @@
 											PC MSI1
 										</div>
 										<button class="botonCesta" onclick="añadirCesta('PC MSI1', 1500)">Añadir</button>
+										<button class="botonCesta" onclick="eliminarDelCarrito('PC MSI1')">Eliminar</button>
 										<p align="center">1500€</p>
 									</div>
 								</div>
@@ -120,6 +121,7 @@
 											PC MSI2
 										</div>
 										<button class="botonCesta" onclick="añadirCesta('PC MSI2', 1500)">Añadir</button>
+										<button class="botonCesta" onclick="eliminarDelCarrito('PC MSI2')">Eliminar</button>
 										<p align="center">1500€</p>
 									</div>
 								</div>
@@ -132,7 +134,7 @@
 
 						<div class="container Ordenadores" id="S2">
 							<div class="row justify-content-evenly">
-								<div class=" agrandar  col-lg-3 col-md-6 border rounded" href="#" type="button">
+								<div class=" agrandar  col-lg-3 col-md-6 border rounded" href="#" type="button" id="casco1">
 									<div class="row">
 										<img src="Imagenes/cascos3.jpg" height="200">
 									</div>
@@ -141,6 +143,7 @@
 											CASCOS NUEVO1
 										</div>
 										<button class="botonCesta" onclick="añadirCesta('CASCOS NUEVO1', 80)">Añadir</button>
+										<button class="botonCesta" onclick="eliminarDelCarrito('CASCOS NUEVO1')">Eliminar</button>
 										<p align="center">80€</p>
 									</div>
 								</div>
@@ -153,6 +156,7 @@
 											CASCOS NUEVO2
 										</div>
 										<button class="botonCesta" onclick="añadirCesta('CASCOS NUEVO2', 75)">Añadir</button>
+											<button class="botonCesta" onclick="eliminarDelCarrito('CASCOS NUEVO2')">Eliminar</button>
 										<p align="center">75€</p>
 									</div>
 								</div>
@@ -165,6 +169,7 @@
 											CASCOS NUEVO3
 										</div>
 										<button class="botonCesta" onclick="añadirCesta('CASCOS NUEVO3', 90)">Añadir</button>
+										<button class="botonCesta" onclick="eliminarDelCarrito('CASCOS NUEVO3')">Eliminar</button>
 										<p align="center">90€</p>
 									</div>
 								</div>
@@ -179,20 +184,21 @@
 					<h2>Lista Productos</h2>
 				
     <h2>Carrito de Compras</h2>
-    <table id="tablaCarrito" border="1" style="width: 100%; border-collapse: collapse;">
+    <table id="tablaCarrito"  border="1" style="width: 100%; border-collapse: collapse;">
         <tr>
             <th style="padding: 10px; text-align: left;">Producto</th>
             <th style="padding: 10px; text-align: center;">Cantidad</th>
             <th style="padding: 10px; text-align: center;">Precio CADA UNO</th>
             <th style="padding: 10px; text-align: center;">Total</th>
         </tr>
+       
     </table>
 
 					<ul id="cart-items">
 					</ul>
 					<p>Total: $<span id="cart-total">0</span></p>
 					<button class="botonCesta" onclick="comprar()">Comprar</button>
-					<button class="botonCesta" onclick="limpiar()">Limpiar Cesta</button>
+					<button class="botonCesta" onclick="eliminarCesta()">Limpiar Cesta</button>
 					
 				</div>
 			</div>
