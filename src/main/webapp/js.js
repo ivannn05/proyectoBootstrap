@@ -92,8 +92,10 @@ function mostrarCarrito(nombre, precio, todasLasVentas) {
 
 
 		// Crear una fila para este producto en la tabla
+					//Si en la linea de abajo se pone la variable nombre se va mostrando el nombre de los que se añadan
 		fila = `
             <tr>
+            
                 <td>${arrayDatos[key]}</td>
                 <td>${todasLasVentas[key][2]}</td>
                 <td>$${precio}</td>
