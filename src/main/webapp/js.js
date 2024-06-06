@@ -93,7 +93,10 @@ function eliminarCesta() {
 }
 
 function comprar() {
-    alert("Su compra fue realizada con éxito");
+   alert("Su compra fue realizada con éxito");
+    arrayDatos.length = 0; // Vaciamos el arrayDatos
+    productos.forEach(producto => producto.cantidad = 0); // Reiniciar las cantidades de productos
+    mostrarCarrito(); // Actualizar la tabla para que se quede vacía
 }
 
 
