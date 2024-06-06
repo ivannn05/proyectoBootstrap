@@ -1,6 +1,8 @@
 /**
  * 
  */
+let valor=[]
+
 function validacionDeFecha() {
 
 	var fechaDelUsu = document.getElementById("fecha").value
@@ -25,95 +27,73 @@ function validacionDeFecha() {
 
 const arrayDatos = []
 
-function añadirCesta(nombre, precio) {
-	let prod1 = {
-		nombre: "Portatil Razer",
-		precio1: 1250,
-		cantidad: 0
-	}
-	let prod2 = {
+const productos = [
+    { nombre: "Portatil Razer", precio: 1250, cantidad: 0 },
+    { nombre: "PC MSI1", precio: 1500, cantidad: 0 },
+    { nombre: "PC MSI2", precio: 1500, cantidad: 0 },
+    { nombre: "CASCOS NUEVO1", precio: 80, cantidad: 0 },
+    { nombre: "CASCOS NUEVO2", precio: 75, cantidad: 0 },
+    { nombre: "CASCOS NUEVO3", precio: 90, cantidad: 0 }
+];
 
-		nombre: "PC MSI1",
-		precio2: 1500,
-		cantidad: 0
-	}
-	let prod3 = {
-		nombre: "PC MSI2",
-		precio3: 1500,
-		cantidad: 0
-	}
-	let prod4 = {
-		id:"casco1",
-		nombre: "CASCOS NUEVO1",
-		precio4: 80,
-		cantidad: 0
-	}
-	let prod5 = {
-		nombre: "CASCOS NUEVO2",
-		precio5: 75,
-		cantidad: 0
-	}
-	let prod6 = {
-		nombre: "CASCOS NUEVO3",
-		precio6: 90,
-		cantidad: 0
-	};
-	const todasLasVentas = [prod1, prod2, prod3, prod4, prod5, prod6];
-
-	
-
-		
-		for (let i = 0; i < todasLasVentas.length; i++) {
-
-			if (todasLasVentas[i].cantidad == 0 && nombre == todasLasVentas[i].nombre) {
-				
-				todasLasVentas[i].cantidad = 1
-				arrayDatos.push(todasLasVentas[i])
-				
-			} else if(nombre == todasLasVentas[i].nombre){
-				
-				todasLasVentas[i].cantidad++
-			}
-		}
-	
-
-	// Actualizar la tabla que muestra el carrito
-	mostrarCarrito(nombre, precio, todasLasVentas);
+function añadirCesta(nombre) {
+    for (let i = 0; i < productos.length; i++) {
+        if (productos[i].nombre === nombre) {
+            if (productos[i].cantidad === 0) {
+                productos[i].cantidad = 1;
+                arrayDatos.push(productos[i]);
+            } else {
+                productos[i].cantidad++;
+            }
+            break;
+        }
+    }
+    mostrarCarrito();
 }
-function mostrarCarrito(nombre, precio, todasLasVentas) {
-	const tablaCarrito = document.getElementById('tablaCarrito');
-	tablaCarrito.innerHTML = ''; // Limpiar la tabla antes de volver a llenarla
-	let producto = [], fila;
-	let dineroTotal
-	dineroTotal = precio * dineroTotal
-	// Recorrer todos los productos en el carrito
-	for (let key in arrayDatos) {
 
+function mostrarCarrito() {
+    const tablaCarrito = document.getElementById('tablaCarrito');
+    tablaCarrito.innerHTML = ''; // Limpiar la tabla antes de volver a llenarla
+    let total = 0;
 
-
-		// Crear una fila para este producto en la tabla
-					//Si en la linea de abajo se pone la variable nombre se va mostrando el nombre de los que se añadan
-		fila = `
+    arrayDatos.forEach(producto => {
+        const subtotal = producto.precio * producto.cantidad;
+        total += subtotal;
+        const fila = `
             <tr>
-            
-                <td>${arrayDatos[key]}</td>
-                <td>${todasLasVentas[key][2]}</td>
-                <td>$${precio}</td>
-                <td>$${dineroTotal}</td>
+                <td>${producto.nombre}</td>
+                <td>${producto.cantidad}</td>
+                <td>$${producto.precio}</td>
+                <td>$${subtotal}</td>
             </tr>
         `;
+        tablaCarrito.innerHTML += fila;
+    });
 
-		// Agregar la fila a la tabla nueva
-		tablaCarrito.innerHTML += fila;
-	}
+    const filaTotal = `
+        <tr>
+            <td colspan="3"><strong>Total</strong></td>
+            <td><strong>$${total}</strong></td>
+        </tr>
+    `;
+    tablaCarrito.innerHTML += filaTotal;
 }
-function eliminarCesta() {}
 
-function comprar(){
-	
-	alert("Su compra fue realizada con exito")
-	
-	
+function eliminarCesta() {
+    const nombre = prompt("Introduce el nombre a eliminar");
+    const index = arrayDatos.findIndex(producto => producto.nombre === nombre);
+    
+    if (index !== -1) {
+        arrayDatos.splice(index, 1);
+        productos.find(producto => producto.nombre === nombre).cantidad = 0;
+        mostrarCarrito();
+    } else {
+        alert("No se ha encontrado ese producto");
+    }
+}
+
+function comprar() {
+    alert("Su compra fue realizada con éxito");
 }
 
 
