@@ -1,31 +1,8 @@
 /**
  * 
  */
-let valor=[]
-
-function validacionDeFecha() {
-
-	var fechaDelUsu = document.getElementById("fecha").value
-	/* split / -> array de 2  mes anyo */
-	const arrayFecha = fechaDelUsu.split('/')
-	const fechaUsu = new Date(arrayFecha[1], arrayFecha[0]-1)
-
-	const fechaHoy = new Date();
-
-	if (fechaUsu > fechaHoy) {
-
-
-		return true; // Fecha caducada o inválida
-	} else {
-		alert("La fecha esta caducada")
-		return false; // Fecha válida y no caducada
-	}
-}
-
-
-
-
-const arrayDatos = []
+let valor = [];
+const arrayDatos = JSON.parse(localStorage.getItem('carrito')) || [];
 
 const productos = [
     { nombre: "Portatil Razer", precio: 1250, cantidad: 0 },
@@ -35,6 +12,36 @@ const productos = [
     { nombre: "CASCOS NUEVO2", precio: 75, cantidad: 0 },
     { nombre: "CASCOS NUEVO3", precio: 90, cantidad: 0 }
 ];
+
+// Recuperar cantidades de productos del localStorage
+const productosGuardados = JSON.parse(localStorage.getItem('productos'));
+if (productosGuardados) {
+    productosGuardados.forEach(guardado => {
+        const producto = productos.find(p => p.nombre === guardado.nombre);
+        if (producto) {
+            producto.cantidad = guardado.cantidad;
+        }
+    });
+}
+
+function guardarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify(arrayDatos));
+    localStorage.setItem('productos', JSON.stringify(productos));
+}
+
+function validacionDeFecha() {
+    var fechaDelUsu = document.getElementById("fecha").value;
+    const arrayFecha = fechaDelUsu.split('/');
+    const fechaUsu = new Date(arrayFecha[1], arrayFecha[0] - 1); // Restar 1 al mes porque los meses en JS van de 0 a 11
+    const fechaHoy = new Date();
+
+    if (fechaUsu > fechaHoy) {
+        return true; // Fecha válida
+    } else {
+        alert("La fecha está caducada");
+        return false; // Fecha inválida
+    }
+}
 
 function añadirCesta(nombre) {
     for (let i = 0; i < productos.length; i++) {
@@ -48,6 +55,7 @@ function añadirCesta(nombre) {
             break;
         }
     }
+    guardarCarrito();
     mostrarCarrito();
 }
 
@@ -86,6 +94,7 @@ function eliminarCesta() {
     if (index !== -1) {
         arrayDatos.splice(index, 1);
         productos.find(producto => producto.nombre === nombre).cantidad = 0;
+        guardarCarrito();
         mostrarCarrito();
     } else {
         alert("No se ha encontrado ese producto");
@@ -93,10 +102,14 @@ function eliminarCesta() {
 }
 
 function comprar() {
-   alert("Su compra fue realizada con éxito");
-    arrayDatos.length = 0; // Vaciamos el arrayDatos
+    alert("Su compra fue realizada con éxito");
+    arrayDatos.length = 0; // Vaciar el arrayDatos
     productos.forEach(producto => producto.cantidad = 0); // Reiniciar las cantidades de productos
-    mostrarCarrito(); // Actualizar la tabla para que se quede vacía
+    guardarCarrito(); // Guardar el carrito vacío
+    mostrarCarrito(); // Actualizar la tabla para que quede vacía
 }
+
+// Mostrar carrito al cargar la página
+mostrarCarrito();
 
 
