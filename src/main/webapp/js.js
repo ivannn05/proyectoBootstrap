@@ -8,7 +8,7 @@ function validacionDeFecha() {
 	var fechaDelUsu = document.getElementById("fecha").value
 	/* split / -> array de 2  mes anyo */
 	const arrayFecha = fechaDelUsu.split('/')
-	const fechaUsu = new Date(arrayFecha[1], arrayFecha[0])
+	const fechaUsu = new Date(arrayFecha[1], arrayFecha[0]-1)
 
 	const fechaHoy = new Date();
 
